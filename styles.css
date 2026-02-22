@@ -5,7 +5,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
     min-height: 100vh;
     position: relative;
-    background-image: url('img/pozadina.jpg');
+    background-image: url('img/poz.jpg');
     background-size: cover; /* Da bi se slika prilagodila veličini ekrana */
     background-size: 100%;
     background-position: center; /* Da bi se slika centrirala */
@@ -185,3 +185,4 @@ body {
     font-family: sans-serif;
     font-weight: bold;
 }
+
