@@ -2,7 +2,7 @@ let chart = document.getElementById('myChart');
 
 $(document).ready(function () {
     if ($('#myChart').html() === "") {
-        $.get('https://raw.githubusercontent.com/VeljkoIT01/ITSenzori/main/main.CSV', function (data) { dataToArrays(data) }, 'text');
+        $.get('https://raw.githubusercontent.com/jovanajakovljevicc123/ITSenzori/main/main.CSV', function (data) { dataToArrays(data) }, 'text');
 
     }
 
@@ -211,3 +211,4 @@ document.getElementById('downloadButton').addEventListener('click', function() {
         })
         .catch(error => console.error('Došlo je do greške:', error));
 });
+
