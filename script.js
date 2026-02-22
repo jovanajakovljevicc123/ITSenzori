@@ -147,7 +147,7 @@ function createChart(parsedData) {
 }
 
 function getColor() {
-    const colors = ['#D30000', '#1260CC', '#1FD665', '#FF007F', '#FFD700', '#FF6600'];
+    const colors = ['#FF7F00','#D30000', '#1260CC', '#1FD665', '#FF007F', '#FFD700', '#FF6600'];
     return colors;
 }
 
@@ -191,8 +191,8 @@ function topFunction() {
 }
 
 document.getElementById('downloadButton').addEventListener('click', function() {
-    let url = 'https://raw.githubusercontent.com/VeljkoIT01/ITSenzori/main/main.CSV';
-    let filename = 'JAKOVLJEVIC LIVE 22 JAN 2024.csv'; // Promijenio sam ekstenziju u malim slovima
+    let url = 'https://raw.githubusercontent.com/jovanajakovljevicc123/ITSenzori/main/main.CSV';
+    let filename = 'JAKOVLJEVIC JOVANA LIVE 28 JAN 2026.csv'; // Promenila sam ekstenziju u malim slovima
 
     fetch(url)
         .then(response => response.blob())
@@ -211,4 +211,5 @@ document.getElementById('downloadButton').addEventListener('click', function() {
         })
         .catch(error => console.error('Došlo je do greške:', error));
 });
+
 
