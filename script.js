@@ -83,29 +83,26 @@ function createChart(parsedData) {
 
     /* Data */
 
-    let labels = dataMatrix[0];
-    labels.splice(0, 3);
+   
+    let labels = dataMatrix[0].slice(3); // uzmi sve osim prvih 3
+let datasets = [];
 
-    let datasets = [];
+for (let i = 1; i < dataMatrix.length; i++) {
+    let label = headingArray[i].title;       // uzmi naziv iz headingArray
+    let datasetData = dataMatrix[i].slice(3); // uzmi sve osim prvih 3 vrednosti
 
-    for (let i = 1; i < dataMatrix.length; i++) {
-        let label = dataMatrix[i][0];
-        let datasetData = dataMatrix[i];
-        datasetData.splice(0, 3);
-    
-        let color = getColor()[i - 1]; // Odaberite boju iz niza boja na osnovu indeksa
-        datasets.push({
-            label: label,
-            data: datasetData,
-    
-            borderColor:color,
-            borderWidth: '0',
-            backgroundColor: color,
-            pointRadius: 0,
-            fill:false,
-        });
-    }
-    
+    let color = getColor()[i - 1];
+    datasets.push({
+        label: label,
+        data: datasetData,
+        borderColor: color,
+        borderWidth: 2,
+        backgroundColor: color,
+        pointRadius: 0,
+        fill: false
+    });
+}
+
 
     /* /Data */
 
@@ -211,5 +208,6 @@ document.getElementById('downloadButton').addEventListener('click', function() {
         })
         .catch(error => console.error('Došlo je do greške:', error));
 });
+
 
 
