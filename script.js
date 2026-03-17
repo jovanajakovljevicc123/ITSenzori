@@ -52,19 +52,30 @@ function createChart(parsedData) {
         headingArray.splice(commentIndex, 1);
     }
 
-    let html = '';
-    html += '<table class="table"><tbody>';
+    const columnColors = ['', '#FF7F00', '#D30000', '#1260CC', '#1FD665', '#FF007F', '#FFD700', ''];
 
-    parsedData.data.forEach(element => {
-        if (element.some(function (el) { return el !== null; })) {
-            html += '<tr>';
-            element.forEach(element => {
-                html += '<td>' + (element !== null ? element : '') + '</td>';
-            });
-            html += '</tr>';
-        }
-    });
-    html += '</tbody></table>'
+let html = '';
+html += '<table class="table"><tbody>';
+
+let rowIndex = 0;
+parsedData.data.forEach(element => {
+    if (element.some(function (el) { return el !== null; })) {
+        html += '<tr>';
+        element.forEach(function(cell, colIndex) {
+            if (rowIndex < 2) {
+                const bg = columnColors[colIndex] || '';
+                const textColor = bg === '#FFD700' ? 'black' : (bg ? 'white' : '');
+                const style = bg ? 'style="background-color:' + bg + '; color:' + textColor + '; font-weight:bold;"' : '';
+                html += '<td ' + style + '>' + (cell !== null ? cell : '') + '</td>';
+            } else {
+                html += '<td>' + (cell !== null ? cell : '') + '</td>';
+            }
+        });
+        html += '</tr>';
+        rowIndex++;
+    }
+});
+html += '</tbody></table>';
     $('#parsedData').html(html);
 
     console.log(parsedData);
