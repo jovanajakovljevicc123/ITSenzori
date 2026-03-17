@@ -62,6 +62,7 @@ parsedData.data.forEach(element => {
     if (element.some(function (el) { return el !== null; })) {
         html += '<tr>';
         element.forEach(function(cell, colIndex) {
+            if (colIndex === commentIndex) return;
             if (rowIndex < 2) {
                 const bg = columnColors[colIndex] || '';
                 const textColor = bg === '#FFD700' ? 'black' : (bg ? 'white' : '');
