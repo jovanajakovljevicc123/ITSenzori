@@ -65,7 +65,7 @@ parsedData.data.forEach(element => {
             if (rowIndex < 2) {
                 const bg = columnColors[colIndex] || '';
                 const textColor = bg === '#FFD700' ? 'black' : (bg ? 'white' : '');
-                const style = bg ? 'style="background-color:' + bg + '; color:' + textColor + '; font-weight:bold;"' : '';
+                const style = bg ? 'style="color:' + bg + '; font-weight:bold;"' : '';
                 html += '<td ' + style + '>' + (cell !== null ? cell : '') + '</td>';
             } else {
                 html += '<td>' + (cell !== null ? cell : '') + '</td>';
