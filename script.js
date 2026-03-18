@@ -96,12 +96,12 @@ html += '</tbody></table>';
     /* Data */
 
    
-    let labels = dataMatrix[0].slice(3); // uzmi sve osim prvih 3
+    let labels = dataMatrix[0].slice(3).filter(label => label !== null);
 let datasets = [];
 
 for (let i = 1; i < dataMatrix.length; i++) {
     let label = headingArray[i].title;       // uzmi naziv iz headingArray
-    let datasetData = dataMatrix[i].slice(3); // uzmi sve osim prvih 3 vrednosti
+    let datasetData = dataMatrix[i].slice(3).filter((_, index) => dataMatrix[0].slice(3)[index] !== null);
 
     let color = getColor()[i - 1];
     datasets.push({
