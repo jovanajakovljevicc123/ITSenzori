@@ -69,7 +69,9 @@ parsedData.data.forEach(element => {
                 const style = bg ? 'style="color:' + bg + '; font-weight:bold;"' : 'style="font-weight:bold;"';
                 html += '<td ' + style + '>' + (cell !== null ? cell : '') + '</td>';
             } else {
-                html += '<td>' + (cell !== null ? cell : '') + '</td>';
+    const bg = columnColors[colIndex] || '';
+    const style = bg ? 'style="color:' + bg + ';"' : '';
+    html += '<td ' + style + '>' + (cell !== null ? cell : '') + '</td>';
             }
         });
         html += '</tr>';
